@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import portrait from "../../asset/images/register__portrait.jpg";
 import "./SignUpPage.scss";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 const SignUpPage = ({setUser}) => {
+    const navigate = useNavigate();
     // State to control the forms
     const [firstName, setFirstName] = useState("");
     const [isValidFName, setIsValidFName] = useState(true);
@@ -17,8 +18,8 @@ const SignUpPage = ({setUser}) => {
     const [isValidConfirmPwd, setIsValidConfirmPwd] = useState(true);
     const [location, setLocation] = useState("");
     const [isValidLocation, setIsValidLocation] = useState(true);
-
-    const handleSubmit = (e) => {
+    const [errMsg, setErrMsg] = useState("");
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if(!firstName || !lastName || !email || !pwd || !confirmPwd || !location) {
             if(!firstName || firstName.length <4) setIsValidFName(false);
@@ -31,33 +32,58 @@ const SignUpPage = ({setUser}) => {
             if(!location) setIsValidLocation(false);
         }
         // Every required field is filled
-        axios.post(`${process.env.REACT_APP_BASE_URL}/user/register`, 
-            {
-                firstName,
-                lastName,
-                password: pwd,
-                email,
-                location
-            })
-            .then((response) => {
-                if(!response.data.accesstoken){
-
+        try {
+            const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/user/register`, 
+                                    {
+                                        firstName,
+                                        lastName,
+                                        password: pwd,
+                                        email,
+                                        location
+                                    });
+            // Successful
+            localStorage.setItem("accessToken", response.data.accessToken);
+            setFirstName("");
+            setLastName("");
+            setEmail("");
+            setPwd("");
+            setConfirmPwd("");
+            setLocation("");
+            // Store user information in user state in the top level component
+            try {
+                const userInfo = await axios.get(`${process.env.REACT_APP_BASE_URL}/user`, {
+                    headers: {
+                        Authorization: `Bearer ${response.data.accessToken}`
+                    }
+                })
+                setUser(userInfo.data);
+            } catch(error) {
+                console.log(error);
+            }
+            navigate("/dashboard")
+        } catch(error) {
+                if(error?.response?.data?.message) {
+                    setErrMsg(error?.response?.data?.message);
+                } else {
+                    setErrMsg("Unable to create your account right now. Please try again later.")
                 }
-                console.log(response.data.token);
-                localStorage.setItem("authToken", response.data.accesstoken);
-                setFirstName("");
-                setLastName("");
-                setEmail("");
-                setPwd("");
-                setConfirmPwd("");
-                setLocation("");
-            })
+                setTimeout(()=> {
+                    setErrMsg("");
+                    setFirstName("");
+                    setLastName("");
+                    setEmail("");
+                    setPwd("");
+                    setConfirmPwd("");
+                    setLocation("");
+                }, 5000);
+        }
     }
     return (
         <div className="register">
             <div className="register__col1">
                 <h2 className="register__title">Create an account</h2>
                 <p className="register__text">BrainBox is super excited to have you!</p>
+                {errMsg && <p className="register__error-msg--important">{errMsg}</p>}
                 <form className="register__form" onSubmit={handleSubmit}>
                     <div className="register__form-control">
                         <div className="register__input-wrapper">

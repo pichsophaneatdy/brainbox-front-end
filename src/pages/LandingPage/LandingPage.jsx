@@ -1,16 +1,19 @@
 import React from 'react'
-import { useContext } from 'react';
+import { useContext} from 'react';
 import {UserContext} from "../../App";
+import { useNavigate } from 'react-router-dom';
 
-const LandingPage = () => {
+
+const LandingPage = ({setUser}) => {
+    const navigate = useNavigate();
     const user = useContext(UserContext);
-    console.log(user)
-    if(user?.name) {
-        return <h1>Welcome to BrainBox, {user.name}</h1>
+    if(user?.firstName) {
+        navigate("/dashboard");
+        return;
     }
-    return (
-        <div>LandingPage</div>
-    )
+        return (
+            <div>LandingPage</div>
+        )
 }
 
 export default LandingPage
