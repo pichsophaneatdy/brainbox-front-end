@@ -137,7 +137,7 @@ const SignUpPage = ({setUser}) => {
                     </div>
                     <div className="register__btn-wrapper">
                         <button className="register__btn">Create an account</button>
-                        <p className="register__text--small">Already have an acccount? <Link className="register__link" to="">Login</Link></p>
+                        <p className="register__text--small">Already have an acccount? <Link className="register__link" to="/login">Login</Link></p>
                     </div>
                 </form>
             </div>

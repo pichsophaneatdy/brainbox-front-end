@@ -1,36 +1,46 @@
 @use "../../styles/_variables" as *;
 @use "../../styles/_mixins" as *;
 
-.register {
+.login {
     padding: 2rem 12rem;
     display: flex;
     gap: 3rem;
+
     &__col1 {
         width: 50%;
         margin-top: 2rem;
     }
+
     &__col2 {
         width: 60%;
     }
+
     &__title {
         @include heading1;
         margin-bottom: 1rem;
     }
+
     &__portrait {
         width: 100%;
     }
+
     &__text {
         font-size: 14px;
+    }
+    &__form {
+        margin-top: 2rem;
     }
     &__form-control {
         margin: 2rem 0 0 0;
         display: flex;
         gap: 1rem;
     }
+
     &__form-control2 {
         display: flex;
         flex-direction: column;
     }
+
     &__form-input {
         height: 30px;
         background-color: $light_gray;
@@ -39,10 +49,12 @@
         padding: 0 0.7rem;
         font-size: 0.8rem;
         margin-bottom: 0.8rem;
-        &:placeholder{
+
+        &:placeholder {
             font-size: 0.7rem;
         }
     }
+
     &__form-input--error {
         height: 30px;
         outline: none;
@@ -51,27 +63,32 @@
         border-radius: 5px;
         padding: 0 0.7rem;
         font-size: 0.8rem;
-    
+
         &:placeholder {
             font-size: 0.7rem;
         }
     }
+
     &__error-msg {
         font-size: 0.7rem;
         margin-top: 0.3rem;
         margin-bottom: 0.7rem;
         color: red;
     }
+
     &__input-wrapper {
         width: 50%;
     }
+
     &__w-100 {
         width: 100%;
     }
-    &__btn-wrapper{
+
+    &__btn-wrapper {
         padding-top: 1.5rem;
         text-align: center;
     }
+
     &__btn {
         background-color: black;
         color: white;
@@ -82,6 +99,7 @@
         font-family: 'Quicksand', sans-serif;
         font-weight: 500;
         margin-bottom: 0.5rem;
+
         &:hover {
             background-color: white;
             color: black;
@@ -89,27 +107,31 @@
             transition: all 0.5s;
         }
     }
+
     &__text--small {
         font-size: 0.8rem;
 
     }
+
     &__link {
         text-decoration: none;
         font-weight: 600;
         color: black;
+
         &:hover {
             border-bottom: solid 1px black;
             padding-bottom: 0.3rem;
             transition: all 0.3s;
         }
     }
+
     &__error-msg--important {
         color: red;
         font-size: 0.9rem;
         background-color: #ffeded;
         width: fit-content;
-        padding: 0.2rem 1.5rem;
+        padding: 0.4rem 1.5rem;
         border-radius: 0.2rem;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
     }
 }
