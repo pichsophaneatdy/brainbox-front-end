@@ -8,6 +8,7 @@ import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import Dashboard from "./pages/Dashboard/Dashboard.jsx";
 // Component
 import Header from './component/Header/Header';
+import ProtectedRoute from './component/ProtectedRoute/ProctectedRoute';
 
 const UserContext = createContext();
 
@@ -34,7 +35,14 @@ function App() {
               <Route path="/" element={<LandingPage setUser={setUser} />} />
               <Route path="/signUp" element={<SignUpPage setUser={setUser} />}/>
               {/* Protected Route */}
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route 
+                path="/dashboard"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
             </Routes>
           </div>
         </UserContext.Provider>
