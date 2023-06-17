@@ -1,0 +1,8 @@
+@mixin hover {
+    transform: scale(1.2);
+    transition: all 0.5s;
+}
+@mixin heading1 {
+    font-size: 38px;
+    font-weight: 700;
+}

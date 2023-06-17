@@ -1,0 +1,56 @@
+@use "../../styles/_variables" as *;
+@use "../../styles/_mixins" as *;
+
+.header {
+    padding: 1.5rem 12rem; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__logo{
+        width: 8.5rem;
+    }
+    &__nav {
+        display: flex;
+        gap: 2.5rem;
+    }
+    &__link {
+        color: $dark_gray;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        &:hover {
+            @include hover;
+        }
+    }
+    &__action {
+        display: flex;
+        gap: 2.5rem;
+        align-items: center;
+    }
+    &__btn {
+        font-size: 14px;
+        font-family: 'Quicksand', sans-serif;
+        font-weight: 600;
+    }
+    &__login {
+        background-color: white;
+        border: none;
+        &:hover {
+            @include hover;
+        }
+    }
+    &__register{
+        background-color: black;
+        color: white;
+        border:none;
+        border-radius: 3px;
+        padding: 0.5rem 1.5rem;
+        font-weight: 500;
+        &:hover {
+            background-color: white;
+            border: solid 1.5px black;
+            transition: all 0.3s;
+            color: black;
+        }
+    }
+}
