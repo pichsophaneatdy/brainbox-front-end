@@ -6,6 +6,7 @@ import getUserInfo from './util/getUserInfo';
 import LandingPage from './pages/LandingPage/LandingPage';
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import Dashboard from "./pages/Dashboard/Dashboard.jsx";
+import Login from './pages/Login/Login';
 // Component
 import Header from './component/Header/Header';
 import ProtectedRoute from './component/ProtectedRoute/ProctectedRoute';
@@ -34,6 +35,7 @@ function App() {
             <Routes>
               <Route path="/" element={<LandingPage setUser={setUser} />} />
               <Route path="/signUp" element={<SignUpPage setUser={setUser} />}/>
+              <Route path="/login" element={<Login setUser={setUser} />} />
               {/* Protected Route */}
               <Route 
                 path="/dashboard"

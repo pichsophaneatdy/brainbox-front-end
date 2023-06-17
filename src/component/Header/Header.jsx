@@ -20,12 +20,12 @@ const Header = () => {
             </div>
             {/* Login and Register */}
             <div className="header__action">
-                <NavLink>
+                <NavLink to="/login">
                     <button className="header__btn header__login">
                         Login
                     </button>
                 </NavLink>
-                <NavLink>
+                <NavLink to="/signUp">
                     <button className="header__btn header__register">
                         Register
                     </button>
