@@ -1,0 +1,47 @@
+@use "../../styles/_variables" as *;
+
+.header2 {
+    border: solid 1px black;
+    padding: 0.5rem 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__logo {
+        height: 40px;
+    }
+    &__col {
+        display: flex;
+        align-items: center;
+    }
+    &__col2 {
+        gap: 2.5rem;
+    }
+    &__nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__search {
+        height: 30px;
+        width: 300px;
+        background-color: $medium-gray;
+        border: none;
+        border-radius: 3px;
+        padding: 0 0.5rem;
+        color: $text-gray;
+    }
+}
+.nav{
+    &__icon {
+        height: 19px;
+        width: auto;
+    }
+    &__text {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 0.8rem;
+        color: $extra-dark-gray;
+        margin-top: 0.2rem;
+    }
+}

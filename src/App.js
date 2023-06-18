@@ -10,7 +10,7 @@ import Login from './pages/Login/Login';
 // Component
 import Header from './component/Header/Header';
 import ProtectedRoute from './component/ProtectedRoute/ProctectedRoute';
-
+import HeaderDashboard from './component/HeaderDashboard/HeaderDashboard';
 const UserContext = createContext();
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
     <BrowserRouter>
         <UserContext.Provider value={user}>
           <div className="App">
-            <Header />
+            <HeaderDashboard />
             {/* Header */}
             <Routes>
               <Route path="/" element={<LandingPage setUser={setUser} />} />
