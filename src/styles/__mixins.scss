@@ -1,3 +1,5 @@
+@use "../styles/_variables" as *; 
+
 @mixin hover {
     transform: scale(1.2);
     transition: all 0.5s;
@@ -5,4 +7,10 @@
 @mixin heading1 {
     font-size: 38px;
     font-weight: 700;
+}
+@mixin dashboard-section {
+    border: solid 1px $border-gray;
+    background-color: white;
+    border-radius: 3px;
+    font-family: "Inter", sans-serif;
 }

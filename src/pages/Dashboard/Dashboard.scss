@@ -1,1 +1,17 @@
 @use "../../styles/_variables" as *;
+
+.dashboard {
+    background-color: $background-gray;
+    padding: 2rem 10%;
+    display: flex;
+    gap: 2rem;
+    &__col1 {
+        width: 20%;
+    }
+    &__col2 {
+        width: 45%;
+    }
+    &__col3 {
+        width: 30%;
+    }
+}
