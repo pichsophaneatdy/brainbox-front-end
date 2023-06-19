@@ -1,1 +1,5 @@
 @use "../../styles/_variables" as *;
+@use "../../styles/_mixins" as *;
+.setUp {
+    @include dashboard-section;
+}
