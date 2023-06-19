@@ -1,1 +1,50 @@
 @use "../../styles/_variables" as *;
+@use "../../styles/_mixins" as *;
+.profile {
+    @include dashboard-section;
+    &__banner {
+        background-color: $dark_gray ;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        padding: 3rem;
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+    &__desc {
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 0.2rem;
+    }
+    &__desc2 {
+        border-top: solid 1px $border-gray;
+        border-bottom: solid 1px $border-gray;
+        padding: 0.7rem 1rem;
+        line-height: 1.2rem;
+    }
+    &__desc3 {
+        padding: 0.7rem 1rem;
+        line-height: 1.2rem;
+    }
+    &__bio {
+        font-size: 0.8rem;
+        color: #1565FF;
+        padding: 0.3rem 0 0.5rem 0;
+    }
+    &__img {
+        height: 80px;
+        width: 80px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: solid 2.5px white;
+        position: absolute;
+        bottom: -1.5rem;
+    }
+    &__content {
+        margin-top: 1.5rem;
+    }
+    &__text {
+        font-size: 0.8rem;
+        color: $text-gray;
+    }
+}
