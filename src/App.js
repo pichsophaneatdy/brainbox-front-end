@@ -10,7 +10,7 @@ import Login from './pages/Login/Login';
 // Component
 import Header from './component/Header/Header';
 import ProtectedRoute from './component/ProtectedRoute/ProctectedRoute';
-import HeaderDashboard from './component/HeaderDashboard/HeaderDashboard';
+import HeaderDashboard from "./component/HeaderDashboard/HeaderDashboard.jsx";
 const UserContext = createContext();
 
 function App() {
