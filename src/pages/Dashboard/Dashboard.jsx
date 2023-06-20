@@ -9,7 +9,6 @@ import SetUp from '../../component/SetUp/SetUp';
 import Courses from '../../component/Courses/Courses';
 const Dashboard = () => {
     const user = useContext(UserContext);
-    console.log(user);
     return (
         <div className="dashboard">
             <div className="dashboard__col1">
