@@ -2,9 +2,11 @@ import React from 'react'
 import "./SetUp.scss";
 import { useState, useEffect, useContext } from 'react';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../App';
 
 const SetUp = () => {
+    const navigate = useNavigate();
     // UserInfo
     const User = useContext(UserContext);
     // States for university selection
@@ -66,10 +68,14 @@ const SetUp = () => {
         }
     }
     const handleCourseSelect = (courseID) => {
-        setCurrentCourses([...currentCourses, courseID]);
+        if(!(currentCourses.includes(courseID))) {
+            setCurrentCourses([...currentCourses, courseID]);
+        }
     }
     const handlePastCourseSelection = (courseID)=> {
-        setPastCourses([...pastCourses, courseID ]);
+        if(!(pastCourses.includes(courseID))) {
+            setPastCourses([...pastCourses, courseID ]);
+        }
     }
     const handleSubmit = (e) => {
         e.preventDefault();
