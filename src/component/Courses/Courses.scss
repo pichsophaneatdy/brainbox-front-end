@@ -1,1 +1,30 @@
 @use "../../styles/_variables" as *;
+@use "../../styles/_mixins" as *;
+
+.course {
+    @include dashboard-section;
+    padding: 0.7rem;
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__title {
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+    &__icon {
+        width: 20px;
+    }
+    &__current {
+        margin-top: 0.7rem;
+    }
+    &__name{
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+        &:hover {
+            color:$dark-orange;
+            transition: all 0.2s;
+        }
+    }
+}

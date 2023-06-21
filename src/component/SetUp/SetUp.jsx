@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../App';
 
-const SetUp = () => {
+const SetUp = ({setIsSetUpComplete}) => {
     const navigate = useNavigate();
     // UserInfo
     const User = useContext(UserContext);
@@ -92,14 +92,12 @@ const SetUp = () => {
                 }
             })
                 .then((response) => {
-                    setSuccess(true);
-                    console.log(response.data)
+                    setIsSetUpComplete(true);
                 })
                 .catch((error)=> {
                     setSuccess(false);
                     console.log(error);
                 })
-
         } catch(error) {
             console.log(error)
         }
