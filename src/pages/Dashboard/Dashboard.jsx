@@ -12,7 +12,12 @@ import PostModal from '../../component/PostModal/PostModal';
 const Dashboard = () => {
     const user = useContext(UserContext);
     // Post Modal State
-    const [isModalOpen, setIsModalOpen] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isSetUpComplete, setIsSetUpComplete] = useState(user?.degree);
+
+    const handleSetUpComplete = () => {
+        setIsSetUpComplete(true);
+    }
     return (
         <>
             {isModalOpen && <PostModal setIsModalOpen={setIsModalOpen} />}
@@ -28,7 +33,7 @@ const Dashboard = () => {
                                 <UploadPost setIsModalOpen={setIsModalOpen} />
                             </div>
                         ) : (
-                            <SetUp />
+                            <SetUp setIsSetUpComplete={setIsSetUpComplete} />
                         )
                     }
                 </div>

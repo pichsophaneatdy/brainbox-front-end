@@ -1,0 +1,101 @@
+@use "../../styles/_mixins" as *;
+@use "../../styles/_variables" as *;
+
+.reviewForm {
+    @include dashboard-section;
+    padding: 1rem;
+    &__title {
+        @include form-title;
+    }
+    &__form {
+        &__control {
+            margin-bottom: 0.7rem;
+            display: flex;
+            flex-direction: column
+        }
+        &__radio {
+            width: 50%;
+            margin-top: 0.5rem;
+        }
+        &__label {
+            @include form-label;
+        }
+        &__input {
+            @include form-input;
+        }
+        &__text--gray{
+            @include gray-bg-text;
+        }
+        &__btn-wrapper {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        &__btn--gray{
+            @include gray-btn;
+            padding: 0.4rem 2.5rem;
+            &:hover {
+                border: solid 1px #1565FF;
+                color: #1565FF;
+                transition: all 0.3s;
+            }
+        }
+        &__btn--gray--selected {
+            @include gray-btn;
+            padding: 0.4rem 2.5rem;
+            border: solid 1px #1565FF;
+            color: #1565FF;
+        }
+        &__topics-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+        }
+        &__topics-btn{
+            @include gray-btn;
+            padding: 0.3rem 0.6rem;
+            &:hover {
+                border: solid 1px #1565FF;
+                color:#1565FF;
+                transition: all 0.3s;
+            }
+        }
+        &__comment {
+            padding: 0.5rem 0.5rem 4.5rem 0.5rem;
+        }
+        &__topics-btn--select {
+            @include gray-btn;
+            padding: 0.3rem 0.6rem;
+            border: solid 1px #1565FF;
+            color: #1565FF;
+        }
+        &__showmore-wrapper {
+            display: flex;
+            justify-self: end;
+            width: 100%;
+        }
+        &__showmore {
+            width: fit-content;
+            background-color: white;
+            color: #1565FF;
+            border: none;
+            margin-top: 0.7rem;
+            &:hover{
+                font-weight: 600;
+                transition: all 0.3s;
+                text-decoration: underline;
+            }
+        }
+        &__submit {
+            @include submit-btn;
+        }
+        &__btn-wrapper2 {
+            @include btn-wrapper;
+        }
+    }
+}
+.small-text {
+    color: $text-gray;
+    font-size: 0.7rem;
+}

@@ -1,6 +1,7 @@
 import "./HeaderDashboard.scss";
 import logo from "../../asset/images/logo_brainbox.png";
 import React from 'react'
+import { Link } from "react-router-dom";
 // Icons
 import search from "../../asset/icon/search.png";
 import home from "../../asset/icon/home.png";
@@ -8,7 +9,7 @@ import network from "../../asset/icon/network.png";
 import courses from "../../asset/icon/courses.png";
 import messaging from "../../asset/icon/chat.png";
 import notification from "../../asset/icon/notification.png";
-
+import userProfile from "../../asset/icon/user.png";
 const HeaderDashboard = () => {
     return (
         <header className="header2">
@@ -22,10 +23,12 @@ const HeaderDashboard = () => {
             {/* Right Side */}
             <div className="header2__col header2__col2">
                 {/* Home */}
-                <div className="header2__nav">
-                    <img src={home} alt="Icon" className="nav__icon" />
-                    <p className="nav__text">Home</p>
-                </div>
+                <Link className="link" to="/dashboard">
+                    <div className="header2__nav">
+                        <img src={home} alt="Icon" className="nav__icon" />
+                        <p className="nav__text">Home</p>
+                    </div>
+                </Link>
                 {/* Network */}
                 <div className="header2__nav">
                     <img src={network} alt="Icon" className="nav__icon" />
@@ -46,11 +49,11 @@ const HeaderDashboard = () => {
                     <img src={notification} alt="Icon" className="nav__icon" />
                     <p className="nav__text">Notifications</p>
                 </div>
-                {/* Profile
+                {/* Profile */}
                 <div className="headder2__nav">
-                    <img src="" alt="Icon" className="nav__icon" />
-                    <p className="nav__text"></p>
-                </div> */}
+                    <img src={userProfile} alt="Icon" className="nav__icon" />
+                    <p className="nav__text">Me</p>
+                </div>
             </div>
         </header>
     )

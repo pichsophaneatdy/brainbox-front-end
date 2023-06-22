@@ -4,32 +4,18 @@
     @include dashboard-section;
     padding: 1.5rem;
     &__title {
-        color: #1565FF;
-        font-size: 1.2rem;
-        font-weight: 700;
-        margin: 0.5rem 0 1rem 0;
+        @include form-title;
     }
     &__form {
         margin-bottom: 1rem;
         &__label{
-            font-size: 0.8rem;
-            font-weight: 600;
+            @include form-label;
         }
         &__input{
-            width: 100%;
-            border: solid 1px $border-gray;
-            border-radius: 3px;
-            padding: 0.2rem 0.7rem;
-            margin-top: 0.3rem;
+            @include form-input;
         }
         &__text{
-            margin: 1rem 0;
-            color: $text-gray;
-            font-size: 0.7rem;
-            background-color: $medium-gray;
-            width: fit-content;
-            padding: 0.15rem 0.7rem;
-            border-radius: 10px;
+            @include gray-bg-text;
         }
         &__select {
             border: solid 1px $border-gray;
@@ -53,51 +39,15 @@
         width: 13px;
     }
     &__university {
-        display: flex;
-        gap: 0.7rem;
-        align-items: baseline;
-        border: solid 1px $border-gray;
-        border-radius: 15px;
-        font-size: 0.8rem;
-        padding: 0.2rem 0.7rem;
-        width: fit-content;
-        color: $dark_gray;
-        margin-bottom: 0.8rem;
-        cursor: pointer;
-        &:hover {
-            border: solid 1.5px #1565FF;
-            color: #1565FF;
-            transition: all 0.3s;
-        }
+        @include form-item;
     }
     &__university--selected {
-        display: flex;
-        gap: 0.7rem;
-        align-items: baseline;
-        border: solid 1.5px #1565FF;
-        border-radius: 15px;
-        font-size: 0.8rem;
-        padding: 0.2rem 0.7rem;
-        width: fit-content;
-        color: $dark_gray;
-        margin-bottom: 0.8rem;
-        cursor: pointer;
-        color: #1565FF;
+        @include form-item--selected
     }
     &__btn-wrapper {
-        width: 100%;
-        justify-content: end;
-        display: flex;
+        @include btn-wrapper;
     }
     &__next-btn{
-        background-color: #1565FF;
-        color: white;
-        padding: 0.3rem 1.5rem;
-        border: none;
-        border-radius: 0.1rem;
-        &:hover {
-            background-color: $dark_gray;
-            transition: all 0.2s;
-        }
+        @include submit-btn;
     }
 }

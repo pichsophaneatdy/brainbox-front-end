@@ -7,6 +7,8 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import Dashboard from "./pages/Dashboard/Dashboard.jsx";
 import Login from './pages/Login/Login';
+import CourseReview from './pages/CourseReview/CourseReview';
+import Review from './pages/Review/Review';
 // Component
 import Header from './component/Header/Header';
 import ProtectedRoute from './component/ProtectedRoute/ProctectedRoute';
@@ -45,7 +47,20 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+              <Route 
+                path="/courseReview/:courseID"
+                element={
+                  <CourseReview user={user} />
+                }
+              />
+              <Route 
+                path="/reviewForm/:courseID"
+                element={
+                  <Review user={user} />
+                }
+              />
             </Routes>
+            
           </div>
         </UserContext.Provider>
     </BrowserRouter>
