@@ -65,7 +65,7 @@ const ReviewForm = ({user}) => {
             difficulty,
             usefulness,
             recommendation,
-            topics,
+            topics: selectedTopics,
             comment
         }
         axios.post(`${process.env.REACT_APP_BASE_URL}/courseReview`, newReview)

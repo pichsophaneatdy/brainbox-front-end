@@ -11,5 +11,84 @@
     }
     &__title {
         font-weight: 500;
+        font-size: 1.1rem;
+
+    }
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        border: solid 1.5px $border-gray;
+        margin-top: 1.5rem;
+        border-radius: 5px;
+        align-items: center;
+
+    }
+    &__topic {
+        color: #545557;
+        font-size: 0.8rem;
+        line-height: 1rem;
+    }
+    &__item2 {
+        display: flex;
+        padding: 1rem;
+        flex-direction: column;
+        border: solid 1.5px $border-gray;
+        margin-top: 1.5rem;
+        border-radius: 5px;
+}
+    &__left {
+        width: 60%;
+    }
+    &__right2 {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+    &__title2 {
+        color: $dark-orange;
+        font-weight: 600;
+        letter-spacing: 0.05rem;
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        
+    }
+    &__text {
+        font-size: 0.9rem;
+        color: #545557;
+        line-height: 1.5rem;
+    }
+    &__comment__content {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
     }
 }
+
+/* Half Circular Progress Bar */
+.CircularProgressbar {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+    stroke: #f3f3f3;
+}
+.CircularProgressbar-text {
+    fill: #1565FF;
+    font-size: 22px;
+}
+
+// .CircularProgressbar .CircularProgressbar-text {
+//     fill: #1565FF;
+//     font-size: 20px;
+//     dominant-baseline: middle;
+//     text-anchor: middle;
+// }
