@@ -1,0 +1,12 @@
+@use "../../styles/_variables" as *;
+@use "../../styles/_mixins" as *;
+
+.courseAnalysis {
+    @include dashboard-section;
+    padding: 1rem;
+    &__btn {
+        @include gray-btn;
+        padding: 0.4rem 1rem;
+        margin-top: 1.2rem;
+    }
+}

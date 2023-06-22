@@ -1,6 +1,4 @@
 @use "../../styles/_variables" as *;
-
-@use "../../styles/_variables" as *;
 @use "../../styles/_mixins" as *;
 
 .uploadPost {
@@ -22,20 +20,9 @@
         padding:0.4rem 1rem;
     }
     &__btn {
-        border: solid 1px $border-gray;
-        color: $extra-dark-gray;
-        background-color: white;
-        font-size: 0.7rem;
-        font-weight: 600;
+        @include gray-btn;
         padding: 0.4rem 0;
         width: 25%;
-        border-radius: 15px;
-        &:hover {
-            border: solid 1px black;
-            color:black;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
     }
     &__row2 {
         margin-top: 0.7rem;

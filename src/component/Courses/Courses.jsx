@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from 'react'
 import { UserContext } from '../../App'
 import "./Courses.scss";
 import axios from "axios";
+import { useLocation, Link } from 'react-router-dom';
 // icon
 import info from "../../asset/icon/info.png";
 
@@ -10,7 +11,7 @@ const Courses = () => {
     const User = useContext(UserContext);
     const courses = User?.enrollment?.current;
     const [currentCourses, setCurrentCourses] = useState([]);
-    
+    const location = useLocation();
     useEffect(() => {
         const fetchCourse = async(courseID) => {
             try {
@@ -40,7 +41,7 @@ const Courses = () => {
             }
         }
         fetchCourseData();
-    }, []);
+    }, [location, courses]);
 
     return (
         <div className="course">
@@ -48,15 +49,20 @@ const Courses = () => {
                 <p className="course__title">Courses you are currently enrolled</p>
                 <img src={info} className="course__icon" alt="Info Icon"/>
             </div>
-            <div className="course__current">
+            
+                <div className="course__current">
                     {
                         currentCourses.length > 0 ? (
                             currentCourses.map((course) => {
-                                return <p className="course__name">{course?.code}: {course?.name}</p>
+                                return (
+                                    <Link key={course._id} className="link" to={`/courseReview/${course._id}`}>
+                                        <p className="course__name">{course?.code}: {course?.name}</p>
+                                    </Link>
+                                )
                             })
                         ) : "No course"
                     }
-                </div>
+                </div>            
         </div>
     )
 }

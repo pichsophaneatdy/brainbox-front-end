@@ -3,17 +3,21 @@ import "./Profile.scss";
 import {useState, useEffect} from "react";
 import profile from "../../asset/images/profile.png";
 import axios from "axios";
+import { useLocation } from 'react-router-dom';
+
 const Profile = ({user}) => {
+
     const [uni, setUni] = useState({});
     const [degree, setDegree] = useState({});
-    const numberOfCourse = user.enrollment.current.length + user.enrollment.past.length;
+    const numberOfCourse = user?.enrollment?.current?.length + user?.enrollment?.past?.length;
+    const location = useLocation();
     useEffect(() => {
         if(user?.university) {
             axios.get(`${process.env.REACT_APP_BASE_URL}/university/singleUniversity/${user.university}`)
                 .then((response) => setUni(response.data))
                 .catch((error) => console.log(error))
         }
-    }, [])
+    }, [user.university, location])
 
     useEffect(() => {
         if(user?.degree) {
@@ -21,7 +25,7 @@ const Profile = ({user}) => {
                 .then((response) => setDegree(response.data))
                 .catch((error) => console.log(error))
         }
-    }, [])
+    }, [user.degree, location])
     return (
         <div className="profile">
             <div className="profile__banner">
