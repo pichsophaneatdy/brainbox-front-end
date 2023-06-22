@@ -14,7 +14,7 @@ const Review = () => {
                     <Profile user={User}/>
                 </div>
                 <div className="dashboard__col2">
-                    <ReviewForm />
+                    <ReviewForm user={User} />
                 </div>
                 <div className="dashboard__col3">
                     <Courses />

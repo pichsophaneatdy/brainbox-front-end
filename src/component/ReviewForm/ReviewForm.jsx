@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react'
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import "./ReviewForm.scss";
 import topicsData from "../../data/universityTopic";
-const ReviewForm = () => {
+const ReviewForm = ({user}) => {
     const [course, setCourse] = useState({});
     const location = useLocation();
     const {courseID} = useParams();
-
+    const navigate = useNavigate();
     // State for professor
     const [professor, setProfessor] = useState("");
     // State for difficulty
@@ -30,8 +30,9 @@ const ReviewForm = () => {
         setVisibleItems(prevVisibleItems => prevVisibleItems+15);
     }
     // State for comment
-    const [commit, setCommit] = useState("");
-
+    const [comment, setComment] = useState("");
+    // State for successfully submitting the course review
+    const [success, setSuccess] = useState(false);
     // Changing Handler
     const handleDifficulty = (e) => {
         setDifficulty(Number(e.target.value));
@@ -54,7 +55,30 @@ const ReviewForm = () => {
             setSelectedTopics(filterArray);
         }
     }
-
+    // Handle Submit 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const newReview = {
+            userID: user._id,
+            courseID,
+            professor,
+            difficulty,
+            usefulness,
+            recommendation,
+            topics,
+            comment
+        }
+        axios.post(`${process.env.REACT_APP_BASE_URL}/courseReview`, newReview)
+            .then((response) => {
+                console.log(response.data);
+                setSuccess(true);
+                setTimeout(() => {
+                    navigate(`/courseReview/${courseID}`);
+                }, 2500)
+            })
+            .catch((error)=> console.log(error));
+        
+    }
     useEffect(() => {
         switch(difficulty) {
             case 1:
@@ -163,9 +187,13 @@ const ReviewForm = () => {
                     {/* Professor */}
                     <label className="reviewForm__form__label">Comment <span className="small-text">(Optional)</span></label>
                     <input
-                        onChange={(e)=>setProfessor(e.target.value)}
+                        onChange={(e)=>setComment(e.target.value)}
+                        value={comment}
                         type="text"
                         className="reviewForm__form__input reviewForm__form__comment" />
+                </div>
+                <div className="reviewForm__form__btn-wrapper2">
+                    <button onClick={(e)=>handleSubmit(e)} className="reviewForm__form__submit">{success ? "Submitted" : "Submit"}</button>
                 </div>
             </form>
         </div>

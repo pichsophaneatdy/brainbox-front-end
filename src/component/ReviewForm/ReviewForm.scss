@@ -87,6 +87,12 @@
                 text-decoration: underline;
             }
         }
+        &__submit {
+            @include submit-btn;
+        }
+        &__btn-wrapper2 {
+            @include btn-wrapper;
+        }
     }
 }
 .small-text {

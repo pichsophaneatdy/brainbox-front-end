@@ -54,12 +54,6 @@ function App() {
                 }
               />
               <Route 
-                path="/review/:courseID"
-                element={
-                  <Review user={user} />
-                }
-              />
-              <Route 
                 path="/reviewForm/:courseID"
                 element={
                   <Review user={user} />

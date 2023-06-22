@@ -17,7 +17,7 @@ const Profile = ({user}) => {
                 .then((response) => setUni(response.data))
                 .catch((error) => console.log(error))
         }
-    }, [user.university, location])
+    }, [user?.university, location])
 
     useEffect(() => {
         if(user?.degree) {
@@ -25,7 +25,7 @@ const Profile = ({user}) => {
                 .then((response) => setDegree(response.data))
                 .catch((error) => console.log(error))
         }
-    }, [user.degree, location])
+    }, [user?.degree, location])
     return (
         <div className="profile">
             <div className="profile__banner">
