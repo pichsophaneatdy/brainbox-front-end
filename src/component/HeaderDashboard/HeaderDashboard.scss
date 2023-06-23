@@ -1,6 +1,7 @@
 @use "../../styles/_variables" as *;
 
 .header2 {
+    position: relative;
     padding: 0.3rem 10%;
     display: flex;
     align-items: center;
@@ -31,11 +32,23 @@
         color: $text-gray;
         margin-left: 1rem;
     }
+    &__nav-wrapper {
+        display: flex;
+        gap: 0.25rem;
+        align-items: end;
+    }
 }
 .nav{
     &__icon {
         height: 16px;
         width: auto;
+    }
+    &__icon--small {
+        width: 11px;
+        &:hover {
+            transform: scale(1.2);
+            transition: all 0.2s;
+        }
     }
     &__text {
         font-family: "Inter", sans-serif;
@@ -43,5 +56,59 @@
         font-size: 0.8rem;
         color: $extra-dark-gray;
         margin-top: 0.2rem;
+    }
+}
+.profileModal {
+    position: absolute;
+    top:4rem;
+    z-index: 1000;
+    right: 10%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    padding: 1rem;
+    &__img {
+        width: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    &__profile {
+        display: flex;
+        gap: 1rem;
+        align-items: start;
+    }
+    &__name{
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    &__text {
+        font-size: 0.8rem;
+        color: $extra-dark-gray;
+        margin-top: 0.3rem;
+    }
+    &__btn {
+        color: #1565FF;
+        border: solid 1px #1565FF;
+        border-radius: 10px;
+        padding: 0.1rem 0;
+        background-color: white;
+        width: 100%;
+        margin-top: 0.7rem;
+        &:hover {
+            color: black;
+            border: solid 1px black;
+            transition: all 0.5s;
+        }
+    }
+    &__signOut {
+        color: $text-gray;
+        font-size: 0.8rem;
+        padding-top: 0.7rem;
+        cursor: pointer;
+        &:hover {
+            color: black;
+            text-decoration: underline;
+            transition: all 0.5s;
+        }
     }
 }
