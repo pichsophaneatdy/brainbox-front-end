@@ -93,7 +93,7 @@ const SetUp = ({setIsSetUpComplete}) => {
             })
                 .then((response) => {
                     setIsSetUpComplete(true);
-                    navigate("/dashboard");
+                    window.location.reload();
                 })
                 .catch((error)=> {
                     setSuccess(false);

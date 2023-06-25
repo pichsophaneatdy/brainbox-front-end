@@ -30,6 +30,7 @@ const Login = ({setUser}) => {
             })
             // Set access token to local storage
             localStorage.setItem("accessToken", response?.data?.accessToken);
+            localStorage.setItem("streamChatToken", response.data.streamChatToken);
             setEmail("");
             setPwd("");
             // Set user to user context

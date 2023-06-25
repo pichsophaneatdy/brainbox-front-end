@@ -1,17 +1,20 @@
 import React, { useState, useEffect, useContext} from "react";
 import "./CourseAnalysis.scss";
 import axios from "axios";
-import { useLocation, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { UserContext } from "../../App";
 // Avatar
 import avatar from "../../asset/images/register__portrait.jpg";
+import BackIcon from "../../asset/icon/keyboard-left-arrow-button.png";
 // Component
 import Loader from "../../component/Loader/Loader";
 const CourseAnalysis = ({ courseID }) => {
     const User = useContext(UserContext);
     const [error, setError] = useState(false);
+    
+    const navigate = useNavigate(-1);
     // course 
     const [course, setCourse] = useState({});
     useEffect(() => {
@@ -183,9 +186,12 @@ const CourseAnalysis = ({ courseID }) => {
                 course?.name ? (
                     <>
                         {/* Header */}
-                        <p className="courseAnalysis__title">
-                            {course.code} {course.name}
-                        </p>
+                        <div className="courseAnalysis__header">
+                            <img onClick={()=> navigate(-1)} src={BackIcon} alt="Back Button" className="courseAnalysis__headerIcon" />
+                            <p className="courseAnalysis__title">
+                                {course.code} {course.name}
+                            </p>
+                        </div>
                         <Link className="link" to={`/reviewForm/${courseID}`}>
                             <button className="courseAnalysis__btn">
                             Write a course review
@@ -370,7 +376,7 @@ const CourseAnalysis = ({ courseID }) => {
                                 </div>
                             </div>
                         ): (
-                            <p className="courseAnalysis__topic">There is no review for this course yet.</p>
+                            <p className="courseAnalysis__topic mt-1">There is no review for this course yet.</p>
                         )}
                         
                     </>

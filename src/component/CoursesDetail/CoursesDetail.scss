@@ -1,0 +1,17 @@
+@use "../../styles/_variables" as *;
+@use "../../styles/_mixins" as *;
+
+.courseDetail {
+    @include dashboard-section;
+    padding:1rem;
+    &__section {
+        margin-top: 1rem;
+    }
+    &__title {
+        color: $dark-orange;
+        font-weight: 600;
+        font-size: 1.4rem;
+        margin-top: 0.5rem;
+        letter-spacing: 0.05rem;
+    }
+}

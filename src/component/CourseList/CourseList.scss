@@ -1,0 +1,8 @@
+@use "../../styles/_variables" as *;
+@use "../../styles/_mixins" as *;
+
+.courseList {
+    &__credits {
+        @include gray-bg-text;
+    }
+}
