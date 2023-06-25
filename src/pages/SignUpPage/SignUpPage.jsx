@@ -43,6 +43,7 @@ const SignUpPage = ({setUser}) => {
                                     });
             // Successful
             localStorage.setItem("accessToken", response.data.accessToken);
+            localStorage.setItem("streamChatToken", response.data.streamChatToken);
             setFirstName("");
             setLastName("");
             setEmail("");

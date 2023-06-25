@@ -22,6 +22,7 @@ const HeaderDashboard = () => {
 
     const handleSignOut = () => {
         localStorage.removeItem("accessToken");
+        localStorage.removeItem("streamChatToken");
         navigate("/login");
         setIsModalOpen(false);
     }
@@ -69,15 +70,19 @@ const HeaderDashboard = () => {
                     <p className="nav__text">Network</p>
                 </div>
                 {/* Courses */}
-                <div className="header2__nav">
-                    <img src={courses} alt="Icon" className="nav__icon" />
-                    <p className="nav__text">Courses</p>
-                </div>
+                <Link to="/courseManagement" className="link">
+                    <div className="header2__nav">
+                        <img src={courses} alt="Icon" className="nav__icon" />
+                        <p className="nav__text">Courses</p>
+                    </div>
+                </Link>
                 {/* Messaging */}
-                <div className="header2__nav">
-                    <img src={messaging} alt="Icon" className="nav__icon" />
-                    <p className="nav__text">Messaging</p>
-                </div>
+                <Link to="/chat" className="link">
+                    <div className="header2__nav">
+                        <img src={messaging} alt="Icon" className="nav__icon" />
+                        <p className="nav__text">Messaging</p>
+                    </div>
+                </Link>
                 {/* Notification */}
                 <div className="header2__nav">
                     <img src={notification} alt="Icon" className="nav__icon" />

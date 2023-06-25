@@ -9,6 +9,8 @@ import Dashboard from "./pages/Dashboard/Dashboard.jsx";
 import Login from './pages/Login/Login';
 import CourseReview from './pages/CourseReview/CourseReview';
 import Review from './pages/Review/Review';
+import ChatApp from './pages/Chat/Chat';
+import CourseManagement from './pages/CourseManagement/CourseManagement';
 // Component
 import Header from './component/Header/Header';
 import ProtectedRoute from './component/ProtectedRoute/ProctectedRoute';
@@ -57,6 +59,18 @@ function App() {
                 path="/reviewForm/:courseID"
                 element={
                   <Review user={user} />
+                }
+              />
+              <Route
+                path="/chat"
+                element={
+                  <ChatApp />
+                }
+              />
+              <Route
+                path="/courseManagement"
+                element={
+                  <CourseManagement />
                 }
               />
             </Routes>

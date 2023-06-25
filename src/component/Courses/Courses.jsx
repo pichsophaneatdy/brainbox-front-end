@@ -9,6 +9,7 @@ import info from "../../asset/icon/info.png";
 
 const Courses = () => {
     const User = useContext(UserContext);
+    // Current Courses
     const courses = User?.enrollment?.current;
     const [currentCourses, setCurrentCourses] = useState([]);
     const location = useLocation();
