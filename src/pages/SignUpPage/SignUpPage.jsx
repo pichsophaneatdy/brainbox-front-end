@@ -19,6 +19,11 @@ const SignUpPage = ({setUser}) => {
     const [location, setLocation] = useState("");
     const [isValidLocation, setIsValidLocation] = useState(true);
     const [errMsg, setErrMsg] = useState("");
+    const [profile, setProfile] = useState(null);
+
+    const handleImageChange = (e) => {
+        setProfile(e.target.files[0]);
+    }
     const handleSubmit = async (e) => {
         e.preventDefault();
         if(!firstName || !lastName || !email || !pwd || !confirmPwd || !location) {
@@ -31,38 +36,51 @@ const SignUpPage = ({setUser}) => {
             }
             if(!location) setIsValidLocation(false);
         }
+
         // Every required field is filled
         try {
-            const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/user/register`, 
-                                    {
-                                        firstName,
-                                        lastName,
-                                        password: pwd,
-                                        email,
-                                        location
-                                    });
-            // Successful
-            localStorage.setItem("accessToken", response.data.accessToken);
-            localStorage.setItem("streamChatToken", response.data.streamChatToken);
-            setFirstName("");
-            setLastName("");
-            setEmail("");
-            setPwd("");
-            setConfirmPwd("");
-            setLocation("");
-            // Store user information in user state in the top level component
-            try {
-                const userInfo = await axios.get(`${process.env.REACT_APP_BASE_URL}/user`, {
+            if (profile?.name){
+                // Create a form data
+                const formData = new FormData();
+                formData.append("profile", profile);
+                formData.append("firstName", firstName);
+                formData.append("lastName", lastName);
+                formData.append("password", pwd);
+                formData.append("email", email);
+                formData.append("location", location);
+                
+                // Post to server
+                const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/user/register`, formData, {
                     headers: {
-                        Authorization: `Bearer ${response.data.accessToken}`
+                        "Content-Type": "multipath/form-data"
                     }
-                })
-                setUser(userInfo.data);
-            } catch(error) {
-                console.log(error);
-            }
-            navigate("/dashboard")
+                });
+                console.log(response);
+                // Successful
+                localStorage.setItem("accessToken", response.data.accessToken);
+                localStorage.setItem("streamChatToken", response.data.streamChatToken);
+                setFirstName("");
+                setLastName("");
+                setEmail("");
+                setPwd("");
+                setConfirmPwd("");
+                setLocation("");
+                setProfile("");
+                // Store user information in user state in the top level component
+                try {
+                    const userInfo = await axios.get(`${process.env.REACT_APP_BASE_URL}/user`, {
+                        headers: {
+                            Authorization: `Bearer ${response.data.accessToken}`
+                        }
+                    })
+                    setUser(userInfo.data);
+                } catch(error) {
+                    console.log(error);
+                }
+                    navigate("/dashboard")
+                }
         } catch(error) {
+                console.log(error)
                 if(error?.response?.data?.message) {
                     setErrMsg(error?.response?.data?.message);
                 } else {
@@ -76,6 +94,7 @@ const SignUpPage = ({setUser}) => {
                     setPwd("");
                     setConfirmPwd("");
                     setLocation("");
+                    setProfile(null);
                 }, 5000);
         }
     }
@@ -135,6 +154,26 @@ const SignUpPage = ({setUser}) => {
                             onChange={(e)=>setLocation(e.target.value)}
                         ></input>
                         {!isValidLocation && <p className="register__error-msg">Field required</p>}
+                        {/* Profile upload */}
+                        <div className="register__input-wrapper">
+                            <label htmlFor="profile" className="register__form__label">Upload Profile Photo</label>
+                            <input onChange={handleImageChange} type="file" id="profile" className="register__form__upload-input" />
+                        </div>
+                        <div className="register__input-wrapper2">
+                            {
+                                profile?.name && (
+                                    <div className="register__input__info">
+                                        <p className="register__success">Succesfully uploaded {profile.name}</p>
+                                        <p
+                                            onClick={()=>setProfile(null)}
+                                            className="register__delete"
+                                        >
+                                            remove
+                                        </p>
+                                    </div>
+                                )
+                            }
+                        </div>
                     </div>
                     <div className="register__btn-wrapper">
                         <button className="register__btn">Create an account</button>

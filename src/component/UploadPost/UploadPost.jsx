@@ -1,11 +1,16 @@
 import React from 'react'
-import profile from "../../asset/images/profile.png";
+import profile from "../../asset/icon/user (2).png";
 import "./UploadPost.scss";
+import { useContext } from 'react';
+import { UserContext } from '../../App';
+
 const UploadPost = ({setIsModalOpen}) => {
+    const User = useContext(UserContext);
+
     return (
         <div className="uploadPost">
             <div className="uploadPost__row">
-                <img src={profile} alt="User Profile" className="uploadPost__profile" />
+                <img src={User?.picturePath ? User.picturePath : profile} alt="User Profile" className="uploadPost__profile" />
                 <input onFocus={()=>setIsModalOpen(true)} type="text" className="uploadPost__input" placeholder='Start a post' />
             </div>
             <div className="uploadPost__row uploadPost__row2">

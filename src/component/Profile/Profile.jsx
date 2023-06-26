@@ -1,12 +1,11 @@
 import React from 'react';
 import "./Profile.scss";
 import {useState, useEffect} from "react";
-import profile from "../../asset/images/profile.png";
+import avatar from "../../asset/icon/user (2).png";
 import axios from "axios";
 import { useLocation } from 'react-router-dom';
 
 const Profile = ({user}) => {
-
     const [uni, setUni] = useState({});
     const [degree, setDegree] = useState({});
     const numberOfCourse = user?.enrollment?.current?.length + user?.enrollment?.past?.length;
@@ -29,7 +28,7 @@ const Profile = ({user}) => {
     return (
         <div className="profile">
             <div className="profile__banner">
-                <img src={profile} alt="User Profile" className="profile__img" />
+                <img src={user?.picturePath ? user.picturePath : avatar} alt="User Profile" className="profile__img" />
             </div>
             <div className="profile__content">
                 <div className="profile__desc">

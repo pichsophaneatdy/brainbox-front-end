@@ -4,7 +4,7 @@ import { useContext, useState } from 'react';
 import { UserContext } from '../../App';
 
 // Icon and image
-import profile from "../../asset/images/profile.png";
+import profile from "../../asset/icon/user (2).png";
 import cross from "../../asset/icon/x-button.png";
 import axios from "axios";
 
@@ -59,7 +59,7 @@ const PostModal = ({setIsModalOpen}) => {
                 {/* User Profile */}
                 <div className="postModal__content__profile">
                     <div className="postModal__wrapper">
-                        <img src={profile} alt="" className="postModal__content__img" />
+                        <img src={User?.picturePath ? User.picturePath : profile} alt="" className="postModal__content__img" />
                         <div className="postModal__content__wrapper">
                             <p className="postModal__content__name">
                                 {User.firstName} {User.lastName}
