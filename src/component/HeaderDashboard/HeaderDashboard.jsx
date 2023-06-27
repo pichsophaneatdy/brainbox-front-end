@@ -7,12 +7,12 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 // Icons
-import userImage from "../../asset/images/profile.png";
+import userImage from "../../asset/icon/user (2).png";
 import home from "../../asset/icon/home.png";
 import network from "../../asset/icon/network.png";
 import courses from "../../asset/icon/courses.png";
-import messaging from "../../asset/icon/chat.png";
-import notification from "../../asset/icon/notification.png";
+import messaging from "../../asset/icon/send.png";
+import notification from "../../asset/icon/shopping-cart.png";
 import userProfile from "../../asset/icon/user.png";
 import chevron from "../../asset/icon/down.png";
 import { useState } from "react";
@@ -36,7 +36,7 @@ const HeaderDashboard = () => {
                         <div className="profileModal">
                             <div className="profileModal__profile">
                                 <div className="profileModal__left">
-                                    <img src={userImage} alt="" className="profileModal__img" />
+                                    <img src={User?.picturePath ? User.picturePath :userImage} alt="" className="profileModal__img" />
                                 </div>
                                 <div className="profileModal__right">
                                     <p className="profileModal__name">{User?.firstName} {User?.lastName}</p>
@@ -44,9 +44,11 @@ const HeaderDashboard = () => {
                                 </div>
                             </div>
                             <div className="profileModal__btn-wrapper">
-                                <button className="profileModal__btn">View Profile</button>
+                                <Link to="/profileDetail" className="link">
+                                    <button onClick={()=>setIsModalOpen(false)} className="profileModal__btn">View Profile</button>
+                                </Link>
                             </div>
-                            <p onClick={()=>handleSignOut()} className="profileModal__signOut">Sign Out</p>
+                                <p onClick={()=>handleSignOut()} className="profileModal__signOut">Sign Out</p>
                         </div>
                     )
                 }
@@ -67,10 +69,12 @@ const HeaderDashboard = () => {
                         </div>
                     </Link>
                     {/* Network */}
-                    <div className="header2__nav">
-                        <img src={network} alt="Icon" className="nav__icon" />
-                        <p className="nav__text">Network</p>
-                    </div>
+                    <Link to="/network" className="link">
+                        <div className="header2__nav">
+                            <img src={network} alt="Icon" className="nav__icon" />
+                            <p className="nav__text">Network</p>
+                        </div>
+                    </Link>
                     {/* Courses */}
                     <Link to="/courseManagement" className="link">
                         <div className="header2__nav">
@@ -85,10 +89,10 @@ const HeaderDashboard = () => {
                             <p className="nav__text">Messaging</p>
                         </div>
                     </Link>
-                    {/* Notification */}
+                    {/* Marketplace */}
                     <div className="header2__nav">
                         <img src={notification} alt="Icon" className="nav__icon" />
-                        <p className="nav__text">Notifications</p>
+                        <p className="nav__text">Marketplace</p>
                     </div>
                     {/* Profile */}
                     <div className="header2__nav">
@@ -99,6 +103,7 @@ const HeaderDashboard = () => {
                         </div>
                         
                     </div>
+                    
                 </div>
             </header>
         )

@@ -179,6 +179,39 @@ const CourseAnalysis = ({ courseID }) => {
                 })
             .catch((error)=> console.log(error));
     }, [courseID, review])
+    // Handle Connect 
+    const [friendList, setFriendList] = useState([]);
+    const [friendID, setFriendID] = useState([]);
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_BASE_URL}/user/${User._id}`)
+            .then((response) => {
+                setFriendList(response.data.friends);
+            })
+            .catch((error)=> console.log(error));
+    }, [User])
+    useEffect(() => {
+        if(friendList?.length > 0) {
+            friendList.map(({_id}) => {
+                setFriendID([...friendID, _id])
+            });
+            
+        }
+    }, [friendList])
+    const handleConnect = (friendID) => {
+        axios.patch(`${process.env.REACT_APP_BASE_URL}/user/addFriend`, {
+            userID: User._id,
+            friendID: friendID
+        })
+            .then((response) => console.log(response.data))
+            .then(() => {
+                axios.get(`${process.env.REACT_APP_BASE_URL}/user/${User._id}`)
+                    .then((response) => {
+                        setFriendList(response.data.friends);
+                    })
+                    .catch((error)=> console.log(error))
+            } )
+            .catch((error) => console.log(error))
+    }
     // Return Component
     return (
         <div className="courseAnalysis">
@@ -328,15 +361,15 @@ const CourseAnalysis = ({ courseID }) => {
                                                                 <div className="courseAnalysis__student">
                                                                     <div className="courseAnalysis__col--wrapper">
                                                                         <div className="courseAnalysis__col1">
-                                                                            <img className="courseAnalysis__avatar" src={avatar} alt="User profile" />
+                                                                            <img className="courseAnalysis__avatar" src={student?.picturePath ? student.picturePath : avatar} alt="User profile" />
                                                                         </div>
                                                                         <div className="courseAnalysis__col2">
                                                                             <p className="courseAnalysis__name">{student.firstName} {student.lastName}</p>
                                                                             <p className="courseAnalysis__info">Fairleigh Dickinson University</p>
                                                                         </div>
                                                                     </div>
-                                                                    <div className="courseAnalysis__col3">
-                                                                        <button className="courseAnalysis__connect-btn">Connect</button>
+                                                                    <div onClick={() => handleConnect(student._id)} className="courseAnalysis__col3">
+                                                                        <button disabled={friendID.includes(student._id)} className="courseAnalysis__connect-btn">{friendID.includes(student._id) ? "Connnected" : "Connect"}</button>
                                                                     </div>
                                                                 </div>
                                                             )
@@ -354,15 +387,15 @@ const CourseAnalysis = ({ courseID }) => {
                                                                 <div className="courseAnalysis__student">
                                                                     <div className="courseAnalysis__col--wrapper">
                                                                         <div className="courseAnalysis__col1">
-                                                                            <img className="courseAnalysis__avatar" src={avatar} alt="User profile" />
+                                                                            <img className="courseAnalysis__avatar" src={student?.picturePath ? student.picturePath : avatar} alt="User profile" />
                                                                         </div>
                                                                         <div className="courseAnalysis__col2">
                                                                             <p className="courseAnalysis__name">{student.firstName} {student.lastName}</p>
                                                                             <p className="courseAnalysis__info">Fairleigh Dickinson University</p>
                                                                         </div>
                                                                     </div>
-                                                                    <div className="courseAnalysis__col3">
-                                                                        <button className="courseAnalysis__connect-btn">Connect</button>
+                                                                    <div onClick={() => handleConnect(student._id)} className="courseAnalysis__col3">
+                                                                        <button disabled={friendID.includes(student._id)} className="courseAnalysis__connect-btn">{friendID.includes(student._id) ? "Connnected" : "Connect"}</button>
                                                                     </div>
                                                                 </div>
                                                             )

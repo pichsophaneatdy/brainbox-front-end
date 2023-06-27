@@ -1,0 +1,152 @@
+@use "../../styles/_variables" as *;
+@use "../../styles/_mixins" as *;
+
+.singlePost {
+    border: solid 1px $border-gray;
+    width: 47%;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    &__row {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+    }
+    &__col1 {
+        display: flex;
+        gap: 0.7rem;
+        align-items: center;
+    }
+    &__profile {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: center;
+    }
+    &__name {
+        font-size: 0.9rem;
+        margin-bottom: 0.2rem;
+        color: black;
+    }
+    &__editBtn {
+        background-color: #1565FF;
+        color: white;
+        padding: 0.2rem 1.3rem;
+        font-size: 0.8rem;
+        border:none;
+        border-radius: 15px;
+    }
+    &__content {
+        font-size: 0.8rem;
+        color: $text-gray;
+    }
+    &__img {
+        width: 100%;
+        border-radius: 5px;
+    }
+    &__post {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;;
+    }
+    &__row3{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+    }
+    &__icon {
+        width: 20px;
+        &:hover {
+            transform: scale(1.1);
+            transition: all 0.5s;
+        }
+    }
+    &__group {
+        display: flex;
+        gap: 0.3rem;
+        align-items: center;
+    }
+    &__left {
+        display: flex;
+        gap: 0.8rem;
+    }
+    &__right {
+        display: flex;
+        gap: 0.5rem;
+    }
+    &__icon-text {
+        color: $text-gray;
+        font-size: 0.8rem;
+    }
+}
+
+.singlePost1 {
+    padding: 1.2rem;
+    border: solid 1px $border-gray;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    &__row {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+    }
+    &__col1 {
+        display: flex;
+        gap: 0.7rem;
+        align-items: center;
+    }
+    &__profile {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: center;
+    }
+    &__name {
+        font-size: 0.9rem;
+        margin-bottom: 0.2rem;
+        color: black;
+    }
+    &__content {
+        font-size: 0.8rem;
+        color: $text-gray;
+    }
+    &__img {
+        width: 100%;
+        border-radius: 5px;
+    }
+    &__post {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;;
+    }
+    &__row3{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+    }
+    &__icon {
+        width: 20px;
+        &:hover {
+            transform: scale(1.1);
+            transition: all 0.5s;
+        }
+    }
+    &__group {
+        display: flex;
+        gap: 0.3rem;
+        align-items: center;
+    }
+    &__left {
+        display: flex;
+        gap: 0.8rem;
+    }
+    &__right {
+        display: flex;
+        gap: 0.5rem;
+    }
+    &__icon-text {
+        color: $text-gray;
+        font-size: 0.8rem;
+    }
+}

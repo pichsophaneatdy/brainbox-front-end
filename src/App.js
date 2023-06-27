@@ -11,10 +11,12 @@ import CourseReview from './pages/CourseReview/CourseReview';
 import Review from './pages/Review/Review';
 import ChatApp from './pages/Chat/Chat';
 import CourseManagement from './pages/CourseManagement/CourseManagement';
+import ProfileDetail from './pages/ProfileDetail/ProfileDetail';
 // Component
-import Header from './component/Header/Header';
 import ProtectedRoute from './component/ProtectedRoute/ProctectedRoute';
 import HeaderDashboard from "./component/HeaderDashboard/HeaderDashboard.jsx";
+import Network from './pages/Network/Network';
+
 const UserContext = createContext();
 
 function App() {
@@ -73,8 +75,19 @@ function App() {
                   <CourseManagement />
                 }
               />
+              <Route
+                path="/profileDetail"
+                element={
+                  <ProfileDetail />
+                }
+              />
+              <Route
+                path="/network"
+                element={
+                  <Network />
+                }
+              />
             </Routes>
-            
           </div>
         </UserContext.Provider>
     </BrowserRouter>

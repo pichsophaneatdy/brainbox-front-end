@@ -22,8 +22,11 @@ const CourseManagement = () => {
             .catch((error) => console.log(error));
     }, [])
     // Current Course Details
-    const [currentCourses, setCurrentCourses] = useState([]); 
+    const [currentCourses, setCurrentCourses] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
     useEffect(() => {
+        setIsLoading(true);
         const fetchCourse = async(courseID) => {
             try {
                 const response = await axios.get(
@@ -47,6 +50,8 @@ const CourseManagement = () => {
                 } catch (error) {
                     console.log(error);
                     setCurrentCourses([]);
+                } finally {
+                    setIsLoading(false);
                 }
             } else {
                 setCurrentCourses([]);
@@ -56,7 +61,10 @@ const CourseManagement = () => {
     }, [User])
     // Past Courses
     const [pastCourses, setPastCourses] = useState([]);
+    const [isLoading2, setIsLoading2] = useState(false);
+
     useEffect(() => {
+        setIsLoading2(true);
         const fetchCourse = async(courseID) => {
             try {
                 const response = await axios.get(
@@ -79,6 +87,8 @@ const CourseManagement = () => {
                 } catch (error) {
                     console.log(error);
                     setPastCourses([]);
+                } finally {
+                    setIsLoading2(false);
                 }
             } else {
                 setPastCourses([]);
@@ -108,7 +118,7 @@ const CourseManagement = () => {
     return (
         <div className="dashboard">
             <div className="dashboard__col1">
-                {totalCredits && completedCredits ? <Progress totalCredits={totalCredits} completedCredits={completedCredits} /> : <p>Loading...</p>}
+                {isLoading && isLoading2 ? <p>Loading...</p> : <Progress totalCredits={totalCredits} completedCredits={completedCredits} /> }
             </div>
             <div className="dashboard__col2">
                 {

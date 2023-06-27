@@ -28,8 +28,8 @@
     }
     &__bio {
         font-size: 0.8rem;
-        color: #1565FF;
         padding: 0.3rem 0 0.5rem 0;
+        color: #1565FF;
     }
     &__img {
         height: 80px;
@@ -46,5 +46,79 @@
     &__text {
         font-size: 0.8rem;
         color: $text-gray;
+    }
+}
+.profile2 {
+    @include dashboard-section;
+    &__banner {
+        background-color: $dark_gray ;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        padding: 6rem 3rem 3rem 1.5rem;
+        position: relative;
+        display: flex;
+        justify-content: start;
+    }
+    &__desc {
+        font-size: 1.5rem;
+        font-weight: 600;
+        padding: 2rem 0 0.2rem 1.5rem;
+    }
+    &__desc2 {
+        padding: 0.7rem 1rem 0.7rem 1.5rem;
+        line-height: 1.2rem;
+    }
+    &__desc3 {
+        padding: 0.3rem 0 0.3rem 1.5rem;
+        line-height: 1.2rem;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+    &__bio {
+        font-size: 0.8rem;
+        padding: 0 0 0.5rem 0;
+        font-weight: 500;
+        margin-top: 0.5rem;
+    }
+    &__setting {
+        margin: 0.5rem 0 1.5rem 1.5rem;
+        background-color: #1565FF;
+        color: white;
+        border-radius: 15px;
+        padding: 0.25rem 1.4rem;
+        border: none;
+        font-size: 0.8rem;
+    }
+    &__img {
+        height: 110px;
+        width: 110px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: solid 2.5px white;
+        position: absolute;
+        bottom: -2.5rem;
+    }
+    &__content {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__right {
+        margin-top: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    &__text {
+        font-size: 0.8rem;
+    }
+    &__blue-text {
+        color: #1565FF;
+        font-size: 0.8rem;
+    }
+    &__circle {
+        height: 5px;
+        width: 5px;
+        background-color: #1565FF;
+        border-radius: 50% ;
     }
 }
