@@ -56,6 +56,18 @@
             font-size: 0.7rem;
         }
     }
+    &__input-wrapper {
+        @include file-input-wrapper;
+        margin-top: 1rem;
+    }
+    &__form {
+        &__label {
+            @include file-input-label;
+        }
+        &__upload-input {
+            @include file-input;
+        }
+    }
     &__error-msg {
         font-size: 0.7rem;
         margin-top: 0.3rem;
@@ -111,5 +123,21 @@
         padding: 0.2rem 1.5rem;
         border-radius: 0.2rem;
         margin-top: 1rem;
+    }
+    &__input__wrapper2 {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+    &__success {
+        @include file-input-success;
+    }
+    &__delete {
+        @include file-input-remove;
+    }
+    &__input__info {
+        @include file-input-info;
+        margin-top: 0.3rem;
     }
 }

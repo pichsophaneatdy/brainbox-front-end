@@ -4,6 +4,7 @@
 .uploadPost {
     padding: 0.8rem;
     @include dashboard-section;
+    margin-bottom: 1rem;
     &__row {
         display: flex;
         gap: 0.5rem;
