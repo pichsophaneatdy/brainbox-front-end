@@ -2,12 +2,12 @@
 @use "../../styles/_mixins" as *;
 
 .header {
-    padding: 1.5rem 12rem; 
+    padding: 0.5rem 12rem; 
     display: flex;
     align-items: center;
     justify-content: space-between;
     &__logo{
-        width: 8.5rem;
+        width: 6.5rem;
     }
     &__nav {
         display: flex;

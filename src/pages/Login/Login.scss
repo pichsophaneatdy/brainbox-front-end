@@ -21,6 +21,10 @@
 
     &__portrait {
         width: 100%;
+        height: 85vh;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 10px;
     }
 
     &__text {
