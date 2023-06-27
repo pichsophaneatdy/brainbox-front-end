@@ -2,6 +2,7 @@
 @use "../../styles/_mixins" as *;
 
 .homepage {
+    transition: background-image 0.5s ease-in-out;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.35)), url("../../asset/images/zhanhui-li-1iuxWsIZ6ko-unsplash\ \(2\).jpg");
     background-blend-mode: multiply;
     background-size: cover;
