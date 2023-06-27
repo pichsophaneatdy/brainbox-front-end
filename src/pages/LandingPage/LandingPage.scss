@@ -1,0 +1,45 @@
+@use "../../styles/_variables" as *;
+@use "../../styles/_mixins" as *;
+
+.homepage {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.35)), url("../../asset/images/zhanhui-li-1iuxWsIZ6ko-unsplash\ \(2\).jpg");
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+    min-height: 89vh;
+    border-radius: 15px;
+    margin: 0 1.5rem;
+    // box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: end;
+    justify-content: start;
+    &__title {
+        color: white;
+        font-family: 'Merriweather', serif;
+        font-weight: 400;
+        font-size: 2.8rem;
+        line-height: 4rem;
+    }
+    &__content {
+        margin-left: 5rem;
+        margin-bottom: 5rem;
+    }
+    &__btn {
+        border-radius: 25px;
+        color: black;
+        font-family: 'Merriweather', serif;
+        padding: 0.5rem 2rem;
+        border: none;
+        margin-top: 1.5rem;
+        font-weight: bold;
+        font-size: 1rem;
+        background-color: transparent;
+        border: solid 1.5px white;
+        color: white;
+        &:hover {
+            background-color: white;
+            transition: all 0.5s;
+            color: black;
+        }
+    }
+}
