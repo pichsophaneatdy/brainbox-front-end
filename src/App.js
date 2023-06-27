@@ -40,6 +40,7 @@ function App() {
             <HeaderDashboard />
             {/* Header */}
             <Routes>
+              {/* Landing Page is in progress */}
               <Route path="/" element={<LandingPage setUser={setUser} />} />
               <Route path="/signUp" element={<SignUpPage setUser={setUser} />}/>
               <Route path="/login" element={<Login setUser={setUser} />} />

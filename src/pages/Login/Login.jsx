@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import portrait from "../../asset/images/register__portrait.jpg";
 import "./Login.scss";
+import { UserContext } from '../../App';
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 
