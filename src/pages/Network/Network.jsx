@@ -30,10 +30,12 @@ const Network = () => {
                     </p>
                     <div className="network__container">
                         {
-                            User?.friends && (
+                            User?.friends.length > 0 ? (
                                 User?.friends.map((friend) => {
                                     return <Profile detail={true} user={friend} />
                                 })
+                            ) : (
+                                <p className="network__noconnection">You have not made any connection yet.</p>
                             )
                         }
                     </div>

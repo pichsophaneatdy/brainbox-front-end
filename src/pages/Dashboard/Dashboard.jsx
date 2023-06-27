@@ -36,7 +36,10 @@ const Dashboard = () => {
                         user?.degree ? (
                             <div className="newsfeed">
                                 <UploadPost setIsModalOpen={setIsModalOpen} />
-                                <Posts posts={posts} />
+                                {posts.length > 0 ? (
+                                        <Posts posts={posts} />
+                                    ):(<p className="dashboard__nopost">No posts yet, starting connecting to other students to see their posts"</p>
+                                )}
                             </div>
                         ) : (
                             <SetUp />

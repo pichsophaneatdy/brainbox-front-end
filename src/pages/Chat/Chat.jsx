@@ -4,6 +4,7 @@ import {Chat} from 'stream-chat-react';
 import { UserContext } from '../../App';
 import { useContext, useState } from 'react';
 import 'stream-chat-react/dist/css/index.css';
+import workinprogress from "../../asset/icon/work-in-progress.png"
 // Component
 import ChannelContainer from '../../component/ChannelContainer/ChannelContainer';
 import ChannelListContainer from '../../component/ChannelListContainer/ChannelListContainer';
@@ -30,24 +31,27 @@ const ChatApp = () => {
         }, streamChatToken);
     }
     return (
-        <div className="app__wrapper">
-            <Chat client={client} theme="team light">
-                <ChannelListContainer
-                    isCreating={isCreating}
-                    setIsCreating={setIsCreating}
-                    isEditing={isEditing}
-                    setIsEditing={setIsEditing}
-                    setCreateType={setCreateType}
-                />
-                <ChannelContainer
-                    isCreating={isCreating}
-                    setIsCreating={setIsCreating}
-                    isEditing={isEditing}
-                    setIsEditing={setIsEditing}
-                    createType={createType}
-                />
-            </Chat>
+        <div className="workinprogress">
+            <img className="workinprogress__icon" src={workinprogress} alt="workinprogress" />
         </div>
+        // <div className="app__wrapper">
+        //     <Chat client={client} theme="team light">
+        //         <ChannelListContainer
+        //             isCreating={isCreating}
+        //             setIsCreating={setIsCreating}
+        //             isEditing={isEditing}
+        //             setIsEditing={setIsEditing}
+        //             setCreateType={setCreateType}
+        //         />
+        //         <ChannelContainer
+        //             isCreating={isCreating}
+        //             setIsCreating={setIsCreating}
+        //             isEditing={isEditing}
+        //             setIsEditing={setIsEditing}
+        //             createType={createType}
+        //         />
+        //     </Chat>
+        // </div>
     )
 }
 
