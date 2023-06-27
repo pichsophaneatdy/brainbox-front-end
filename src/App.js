@@ -12,6 +12,7 @@ import Review from './pages/Review/Review';
 import ChatApp from './pages/Chat/Chat';
 import CourseManagement from './pages/CourseManagement/CourseManagement';
 import ProfileDetail from './pages/ProfileDetail/ProfileDetail';
+import Marketplace from './pages/marketplace/Marketplace';
 // Component
 import ProtectedRoute from './component/ProtectedRoute/ProctectedRoute';
 import HeaderDashboard from "./component/HeaderDashboard/HeaderDashboard.jsx";
@@ -85,6 +86,12 @@ function App() {
                 path="/network"
                 element={
                   <Network />
+                }
+              />
+              <Route
+                path="/marketplace"
+                element={
+                  <Marketplace />
                 }
               />
             </Routes>

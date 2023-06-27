@@ -1,5 +1,5 @@
 @use "../../styles/_variables" as *;
-
+@use "../../styles/_mixins" as *;
 .dashboard {
     background-color: $background-gray;
     padding: 2rem 10%;
@@ -15,5 +15,8 @@
     }
     &__col3 {
         width: 30%;
+    }
+    &__nopost {
+        @include nopost;
     }
 }

@@ -1,3 +1,12 @@
+@use "../../styles/_variables" as *;
+@use "../../styles/_mixins" as *;
+.workinprogress {
+    text-align: center;
+    margin-top: 4rem;
+    &__icon {
+        width: 200px;
+    }
+}
 // :root {
 //     --primary-color: #005fff;
 //     --primary-color-alpha: #005fff1a;

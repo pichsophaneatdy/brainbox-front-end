@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../App';
 
-const SetUp = ({setIsSetUpComplete}) => {
+const SetUp = () => {
     const navigate = useNavigate();
     // UserInfo
     const User = useContext(UserContext);
@@ -92,7 +92,6 @@ const SetUp = ({setIsSetUpComplete}) => {
                 }
             })
                 .then((response) => {
-                    setIsSetUpComplete(true);
                     window.location.reload();
                 })
                 .catch((error)=> {

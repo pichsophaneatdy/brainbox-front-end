@@ -130,7 +130,6 @@ const CourseManagement = () => {
                 }
             </div>
             <div className="dashboard__col3">
-                Col3
             </div>
         </div>
 

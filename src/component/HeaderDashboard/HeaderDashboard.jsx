@@ -90,10 +90,13 @@ const HeaderDashboard = () => {
                         </div>
                     </Link>
                     {/* Marketplace */}
-                    <div className="header2__nav">
-                        <img src={notification} alt="Icon" className="nav__icon" />
-                        <p className="nav__text">Marketplace</p>
-                    </div>
+                    <Link className="link" to="/marketplace">
+                        <div className="header2__nav">
+                            <img src={notification} alt="Icon" className="nav__icon" />
+                            <p className="nav__text">Marketplace</p>
+                        </div>
+                    </Link>
+                    
                     {/* Profile */}
                     <div className="header2__nav">
                         <img src={userProfile} alt="Icon" className="nav__icon" />

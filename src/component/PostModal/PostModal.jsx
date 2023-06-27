@@ -13,7 +13,6 @@ const PostModal = ({setIsModalOpen}) => {
     const [content, setContent] = useState("");
     const [image, SetImage] = useState(null);
     const [success, setSuccess] = useState("Post");
-
     const handleImageChange = (e) => {
         SetImage(e.target.files[0]);
     }
@@ -34,6 +33,7 @@ const PostModal = ({setIsModalOpen}) => {
         formData.append("userID", User._id);
 
         if(content.length > 0) {
+            setSuccess("Loading...");
             axios.post(`${process.env.REACT_APP_BASE_URL}/post`, formData, {
                 headers: {
                     "Content-Type": "multipath/form-data"
@@ -44,7 +44,7 @@ const PostModal = ({setIsModalOpen}) => {
                     setSuccess("Posted");
                     setTimeout(() => {
                         setIsModalOpen(false);
-                    }, 2000)
+                    }, 100)
                 })
                 .catch((error)=> {
                     console.log(error)
