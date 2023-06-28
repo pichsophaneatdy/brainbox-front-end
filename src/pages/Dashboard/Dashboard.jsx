@@ -28,7 +28,7 @@ const Dashboard = () => {
             {isModalOpen && <PostModal setIsModalOpen={setIsModalOpen} />}
             <div className="dashboard">
                 <div className="dashboard__col1">
-                    <Profile user={user}/>
+                    <Profile detail={false} user={user}/>
                 </div>
                 <div className="dashboard__col2">
                     {/* New User */}

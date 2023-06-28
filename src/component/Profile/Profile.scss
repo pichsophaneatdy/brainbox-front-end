@@ -122,3 +122,21 @@
         border-radius: 50% ;
     }
 }
+.connect__btn-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.connect__btn {
+    background-color: #1565FF;
+    padding: 0.2rem 0;
+    color: white;
+    width: 6rem;
+    font-size: 0.8rem;
+    border-radius: 15px;
+    border: none;
+    &:hover {
+        background-color: darkblue;
+        transition: all 0.2s;
+    }
+}

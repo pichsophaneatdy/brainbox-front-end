@@ -74,7 +74,7 @@ const ReviewForm = ({user}) => {
                 setSuccess(true);
                 setTimeout(() => {
                     navigate(`/courseReview/${courseID}`);
-                }, 2500)
+                }, 1000)
             })
             .catch((error)=> console.log(error));
         

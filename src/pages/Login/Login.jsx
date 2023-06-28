@@ -25,16 +25,18 @@ const Login = ({setUser}) => {
             return;
         }
         try {
+            console.log("login request start")
             const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/user/login`, {
                 email,
                 password: pwd
             })
+            console.log("login request end")
             // Set access token to local storage
             localStorage.setItem("accessToken", response?.data?.accessToken);
-            localStorage.setItem("streamChatToken", response.data.streamChatToken);
             setEmail("");
             setPwd("");
             // Set user to user context
+            console.log("get user info start")
             try {
                 const userInfo = await axios.get(`${process.env.REACT_APP_BASE_URL}/user`, {
                     headers: {
@@ -45,6 +47,7 @@ const Login = ({setUser}) => {
             } catch(error) {
                 console.log(error);
             }
+            console.log("get user info end")
             navigate("/dashboard");
         } catch(error){
             if(error?.response?.data?.message) {

@@ -30,7 +30,7 @@ const Network = () => {
                     </p>
                     <div className="network__container">
                         {
-                            User?.friends.length > 0 ? (
+                            User?.friends?.length > 0 ? (
                                 User?.friends.map((friend) => {
                                     return <Profile detail={true} user={friend} />
                                 })

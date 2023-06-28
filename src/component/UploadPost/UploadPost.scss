@@ -16,7 +16,7 @@
         object-fit: cover;
     }
     &__input {
-        width: 100%;
+        flex-grow: 1;
         border: solid 1px $border-gray;
         border-radius: 30px;
         padding:0.4rem 1rem;

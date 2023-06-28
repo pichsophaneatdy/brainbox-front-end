@@ -69,8 +69,20 @@ const Profile = ({user, isFull, detail}) => {
                         <p className="profile__text">{degree ? degree.name : "B.S. in Information Technology"}</p>
                     </div>
                     <div className="profile__desc3">
-                        <p className="profile__text">{detail ? "Connections:" : "Your connections:"} {user?.friends?.length}</p>
-                        <p className="profile__text">{detail ? "Courses:" : "Your courses:"} {numberOfCourse}</p>
+                        {
+                            detail ? (
+                                <div className="connect__btn-wrapper">
+                                    <button className="connect__btn">Connect</button>
+                                </div>
+                            ) : (
+                                <>
+                                    <p className="profile__text">Connections: {user?.friends?.length}</p>
+                                    <p className="profile__text">Courses: {numberOfCourse}</p>
+                                </>
+                                
+                            )
+                        }
+                        
                     </div>
                 </div>
             </div>

@@ -31,7 +31,7 @@ const LandingPage = ({setUser}) => {
             <div className="homepage" 
                 style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.35)), url(${images[currentIndex]})`}}>
                 <div className="homepage__content">
-                    <h1 className="homepage__title">Empovering University Students<br></br> with Revolutionary Tools for<br></br> Success</h1>
+                    <h1 className="homepage__title">BrainBox: Empowering University Students<br></br> with Tools for<br></br> Success</h1>
                     <Link to="/signUp" className="link">
                         <button className="homepage__btn">Get Started</button>
                     </Link>
