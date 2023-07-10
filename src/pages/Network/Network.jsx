@@ -32,7 +32,7 @@ const Network = () => {
                         {
                             User?.friends?.length > 0 ? (
                                 User?.friends.map((friend) => {
-                                    return <Profile detail={true} user={friend} />
+                                    return <Profile detail={false} user={friend} />
                                 })
                             ) : (
                                 <p className="network__noconnection">You have not made any connection yet.</p>

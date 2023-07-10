@@ -19,7 +19,7 @@ const LandingPage = ({setUser}) => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prev) => (prev+1) % images.length);
-        }, 5000);
+        }, 2500);
         return () => clearInterval(interval);
     }, [images.length]);
 

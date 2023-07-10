@@ -4,8 +4,11 @@ import {useState, useEffect} from "react";
 import avatar from "../../asset/icon/user (2).png";
 import axios from "axios";
 import { useLocation } from 'react-router-dom';
+import { UserContext } from '../../App';
+import { useContext } from 'react';
 
-const Profile = ({user, isFull, detail}) => {
+const Profile = ({isFull, detail}) => {
+    const user = useContext(UserContext);
     const [uni, setUni] = useState({});
     const [degree, setDegree] = useState({});
     const numberOfCourse = user?.enrollment?.current?.length + user?.enrollment?.past?.length;

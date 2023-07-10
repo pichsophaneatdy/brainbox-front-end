@@ -81,6 +81,7 @@ const Login = ({setUser}) => {
                         ></input>
                         {!isValidEmail && <p className="login__error-msg">Field required.</p>}
                         <input 
+                            type="password"
                             className={isValidPwd ? "login__form-input" : "login__form-input--error" } 
                             placeholder='Password'
                             value={pwd}
