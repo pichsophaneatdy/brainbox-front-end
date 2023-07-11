@@ -20,7 +20,7 @@
 
 
 ## Technology💻
-
+Link to back-end Git repository: <a href="https://github.com/pichsophaneatdy/brainbox-front-end">Back-end</a>
 ### Front-end
 <ul>
    <li>HTML</li>
